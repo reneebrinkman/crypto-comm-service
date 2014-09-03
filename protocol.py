@@ -10,7 +10,10 @@ def build_test_hash(userdata):
 	
 class CryptoProtocol(object):
 	def register_device(self, registrar_key):
+		keyfound_token = False
 		for user in unregistered_dataset():
 			if build_test_hash(user) == registrar_key:
 				database.execute("UPDATE users SET registered = 1 WHERE codename = ?;", (str(user[1]),))
+				keyfound_token = True
+		return keyfound_token
 
