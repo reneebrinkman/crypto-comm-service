@@ -6,8 +6,8 @@ import sqlite3
 conn = sqlite3.connect("dev.db")
 c = conn.cursor()
 
-def execute(sql):
-	c.execute(sql)
+def execute(sql, *args):
+	c.execute(sql, *args)
 
 def commit():
 	conn.commit()
