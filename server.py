@@ -11,5 +11,5 @@ server = SimpleXMLRPCServer(("localhost", 8000),
                             requestHandler=RequestHandler)
 server.register_introspection_functions()
 
-server.register_instance(protocol.CryptoProtocol())
+server.register_instance(protocol.CryptoFactory())
 server.serve_forever()
